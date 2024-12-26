@@ -13,8 +13,10 @@
 
 	/// REF() to the mind which placed us in an oven
 	var/who_baked_us
+	/// Reagents that should be added to the result
+	var/list/added_reagents
 
-/datum/component/bakeable/Initialize(bake_result, required_bake_time, positive_result, use_large_steam_sprite)
+/datum/component/bakeable/Initialize(bake_result, required_bake_time, positive_result, use_large_steam_sprit, list/added_reagents)
 	. = ..()
 	if(!isitem(parent)) //Only items support baking at the moment
 		return COMPONENT_INCOMPATIBLE
@@ -22,6 +24,9 @@
 	src.bake_result = bake_result
 	src.required_bake_time = required_bake_time
 	src.positive_result = positive_result
+	src.added_reagents = added_reagents
+	if(positive_result)
+		ADD_TRAIT(parent, TRAIT_BAKEABLE, REF(src))
 
 // Inherit the new values passed to the component
 /datum/component/bakeable/InheritComponent(datum/component/bakeable/new_comp, original, bake_result, required_bake_time, positive_result, use_large_steam_sprite)
@@ -41,6 +46,7 @@
 
 /datum/component/bakeable/UnregisterFromParent()
 	UnregisterSignal(parent, list(COMSIG_ITEM_OVEN_PLACED_IN, COMSIG_ITEM_OVEN_PROCESS, COMSIG_ATOM_EXAMINE))
+	REMOVE_TRAIT(parent, TRAIT_BAKEABLE, REF(src))
 
 /// Signal proc for [COMSIG_ITEM_OVEN_PLACED_IN] when baking starts (parent enters an oven)
 /datum/component/bakeable/proc/on_baking_start(datum/source, atom/used_oven, mob/baker)

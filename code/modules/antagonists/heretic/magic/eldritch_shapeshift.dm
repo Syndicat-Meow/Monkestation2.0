@@ -17,5 +17,5 @@
 		/mob/living/basic/pet/dog/corgi,
 		/mob/living/basic/pet/fox,
 		/mob/living/simple_animal/bot/secbot,
-		/mob/living/simple_animal/pet/cat,
+		/mob/living/basic/pet/cat,
 	)

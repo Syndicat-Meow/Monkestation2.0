@@ -23,8 +23,7 @@
 	mobility_flags = MOBILITY_FLAGS_REST_CAPABLE_DEFAULT
 	gold_core_spawnable = FRIENDLY_SPAWN
 	can_be_held = TRUE
-	ai_controller = /datum/ai_controller/basic_controller/cat
-	faction = list(FACTION_CAT)
+
 	held_state = "cat2"
 	attack_verb_continuous = "claws"
 	attack_verb_simple = "claw"

@@ -4569,7 +4569,6 @@
 #include "code\modules\mob\living\basic\pets\penguin.dm"
 #include "code\modules\mob\living\basic\pets\pet.dm"
 #include "code\modules\mob\living\basic\pets\sloth.dm"
-#include "code\modules\mob\living\basic\pets\cat\_cat.dm"
 #include "code\modules\mob\living\basic\pets\cat\bread_cat_ai.dm"
 #include "code\modules\mob\living\basic\pets\cat\cat.dm"
 #include "code\modules\mob\living\basic\pets\cat\cat_ai.dm"

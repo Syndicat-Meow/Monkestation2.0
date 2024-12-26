@@ -315,26 +315,26 @@
 
 ///returns a new list with only atoms that are in the typecache list
 /proc/typecache_filter_list(list/atoms, list/typecache)
-    RETURN_TYPE(/list)
-    . = list()
-    for(var/atom/atom_checked as anything in atoms)
-        if(atom_checked && typecache[atom_checked.type]) // monkestation edit
-            . += atom_checked
+	RETURN_TYPE(/list)
+	. = list()
+	for(var/atom/atom_checked as anything in atoms)
+		if(atom_checked && typecache[atom_checked.type]) // monkestation edit
+			. += atom_checked
 
 ///return a new list with atoms that are not in the typecache list
 /proc/typecache_filter_list_reverse(list/atoms, list/typecache)
-    RETURN_TYPE(/list)
-    . = list()
-    for(var/atom/atom_checked as anything in atoms)
-        if(atom_checked && !typecache[atom_checked.type]) // monkestation edit
-            . += atom_checked
+	RETURN_TYPE(/list)
+	. = list()
+	for(var/atom/atom_checked as anything in atoms)
+		if(atom_checked && !typecache[atom_checked.type]) // monkestation edit
+			. += atom_checked
 
 ///similar to typecache_filter_list and typecache_filter_list_reverse but it supports an inclusion list and and exclusion list
 /proc/typecache_filter_multi_list_exclusion(list/atoms, list/typecache_include, list/typecache_exclude)
-    . = list()
-    for(var/atom/atom_checked as anything in atoms)
-        if(atom_checked && typecache_include[atom_checked.type] && !typecache_exclude[atom_checked.type]) // monkestation edit
-            . += atom_checked
+	. = list()
+	for(var/atom/atom_checked as anything in atoms)
+		if(atom_checked && typecache_include[atom_checked.type] && !typecache_exclude[atom_checked.type]) // monkestation edit
+			. += atom_checked
 
 /**
  * Like typesof() or subtypesof(), but returns a typecache instead of a list.

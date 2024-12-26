@@ -41,8 +41,6 @@
 
 	return AI_BEHAVIOR_DELAY | AI_BEHAVIOR_FAILED
 
-	return AI_BEHAVIOR_DELAY | AI_BEHAVIOR_FAILED
-
 /**
  * Reproduce.
  */

@@ -163,6 +163,7 @@
 	minimum_survivable_temperature = TCMB
 	maximum_survivable_temperature = T0C + 40
 	held_state = "spacecat"
+	faction = list(FACTION_CAT)
 
 /mob/living/basic/pet/cat/breadcat
 	name = "bread cat"
@@ -172,6 +173,7 @@
 	icon_dead = "breadcat_dead"
 	ai_controller = /datum/ai_controller/basic_controller/cat/bread
 	held_state = "breadcat"
+	faction = list(FACTION_CAT)
 	can_interact_with_stove = TRUE
 	butcher_results = list(
 		/obj/item/food/meat/slab = 2,
@@ -193,6 +195,7 @@
 	icon_dead = "original_dead"
 	unique_pet = TRUE
 	held_state = "original"
+	faction = list(FACTION_CAT)
 
 /mob/living/basic/pet/cat/original/add_cell_sample()
 	return
@@ -210,6 +213,7 @@
 	ai_controller = /datum/ai_controller/basic_controller/cat/kitten
 	can_hold_item = FALSE
 	collar_icon_state = "kitten"
+	faction = list(FACTION_CAT)
 
 /mob/living/basic/pet/cat/kitten/Initialize(mapload)
 	. = ..()
@@ -220,14 +224,17 @@
 	gender = MALE
 	gold_core_spawnable = NO_SPAWN
 	unique_pet = TRUE
+	faction = list(FACTION_CAT)
 
 /mob/living/basic/pet/cat/jerry //Holy shit we left jerry on donut ~ Arcane ~Fikou
 	name = "Jerry"
 	desc = "Tom is VERY amused."
 	gender = MALE
+	faction = list(FACTION_CAT)
 
 /mob/living/basic/pet/cat/tabby
 	icon_state = "cat"
 	icon_living = "cat"
 	icon_dead = "cat_dead"
 	held_state = "cat"
+	faction = list(FACTION_CAT)

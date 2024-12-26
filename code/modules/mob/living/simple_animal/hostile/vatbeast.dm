@@ -32,7 +32,13 @@
 	slapper.Grant(src)
 
 	add_cell_sample()
-	AddComponent(/datum/component/tameable, list(/obj/item/food/fries, /obj/item/food/cheesyfries, /obj/item/food/cornchips, /obj/item/food/carrotfries), tame_chance = 30, bonus_tame_chance = 0, after_tame = CALLBACK(src, PROC_REF(tamed)))
+	var/static/list/food_types = list(
+		/obj/item/food/fries,
+		/obj/item/food/cheesyfries,
+		/obj/item/food/cornchips,
+		/obj/item/food/carrotfries,
+	)
+	AddComponent(/datum/component/tameable, food_types = food_types, tame_chance = 30, bonus_tame_chance = 0)
 
 /mob/living/simple_animal/hostile/vatbeast/proc/tamed(mob/living/tamer)
 	buckle_lying = 0

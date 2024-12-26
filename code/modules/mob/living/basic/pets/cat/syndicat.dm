@@ -32,10 +32,10 @@
 	attack_vis_effect = ATTACK_EFFECT_CLAW
 
 /datum/emote/cat
-	mob_type_allowed_typecache = /mob/living/basic/pet/cat/syndicat
+	mob_type_allowed_typecache = /mob/living/basic/pet/cat
 	mob_type_blacklist_typecache = list()
 
-/datum/emote/living/basic/pet/cat/meow
+/datum/emote/cat/meow
 	key = "meow"
 	key_third_person = "meows"
 	message = "meows!"
@@ -43,7 +43,7 @@
 	vary = TRUE
 	sound = SFX_CAT_MEOW
 
-/datum/emote/living/basic/pet/cat/purr
+/datum/emote/cat/purr
 	key = "purr"
 	key_third_person = "purrs"
 	message = "purrs."

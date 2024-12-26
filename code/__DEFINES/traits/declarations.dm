@@ -1179,7 +1179,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_RELAYING_ATTACKER "relaying_attacker"
 
 ///Trait given to limb by /mob/living/basic/living_limb_flesh
-#define TRAIT_IGNORED_BY_LIVING_FLESH "livingflesh_ignored"
+/* #define TRAIT_IGNORED_BY_LIVING_FLESH "livingflesh_ignored" */
 
 ///Trait given to organs that have been inside a living being previously
 /* #define TRAIT_USED_ORGAN "used_organ" */

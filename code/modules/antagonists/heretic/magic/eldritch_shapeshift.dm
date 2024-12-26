@@ -18,8 +18,5 @@
 		/mob/living/basic/pet/dog/corgi,
 		/mob/living/basic/pet/fox,
 		/mob/living/simple_animal/bot/secbot,
-<<<<<<< Updated upstream
 		/mob/living/basic/pet/cat,
-=======
->>>>>>> Stashed changes
 	)

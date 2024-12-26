@@ -38,11 +38,8 @@
 		if(other.gender != living_pawn.gender && !(other.flags_1 & HOLOGRAM_1)) //Better safe than sorry ;_;
 			controller.set_blackboard_key(target_key, other)
 			return AI_BEHAVIOR_DELAY | AI_BEHAVIOR_SUCCEEDED
-<<<<<<< Updated upstream
 
 	return AI_BEHAVIOR_DELAY | AI_BEHAVIOR_FAILED
-=======
->>>>>>> Stashed changes
 
 	return AI_BEHAVIOR_DELAY | AI_BEHAVIOR_FAILED
 

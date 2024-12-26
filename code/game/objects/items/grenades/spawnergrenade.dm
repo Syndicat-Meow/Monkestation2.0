@@ -75,7 +75,6 @@
 /obj/item/grenade/spawnergrenade/cat
 	name = "Catnade"
 	desc = "You can hear faint meowing and the sounds of claws on metal coming from within."
-<<<<<<< Updated upstream
 	spawner_type = list(/mob/living/basic/pet/cat/feral, /mob/living/basic/pet/cat/feraltabby)
 	deliveryamt = 5
 
@@ -84,7 +83,3 @@
 	desc = "You can hear aggressive meowing and the sounds of sharpened claws on metal coming from within."
 	spawner_type = /mob/living/basic/pet/cat/syndicat
 	deliveryamt = 3
-=======
-	spawner_type = /mob/living/basic/pet/cat/feral
-	deliveryamt = 5
->>>>>>> Stashed changes

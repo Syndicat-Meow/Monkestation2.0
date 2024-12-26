@@ -277,11 +277,8 @@
 		/mob/living/basic/stickman,
 		/mob/living/basic/stickman/dog,
 		/mob/living/simple_animal/hostile/megafauna/dragon/lesser,
-<<<<<<< Updated upstream
 		/mob/living/basic/pet/cat,
 		/mob/living/basic/pet/cat/cak,
-=======
->>>>>>> Stashed changes
 		/obj/item/food/sausage/american,
 		/obj/item/skub,
 	)

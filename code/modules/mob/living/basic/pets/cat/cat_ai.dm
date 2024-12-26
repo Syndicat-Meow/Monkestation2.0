@@ -6,10 +6,6 @@
 		BB_BABIES_PARTNER_TYPES = list(/mob/living/basic/pet/cat),
 		BB_BABIES_CHILD_TYPES = list(/mob/living/basic/pet/cat/kitten),
 	)
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 	ai_movement = /datum/ai_movement/basic_avoidance
 	idle_behavior = /datum/idle_behavior/idle_random_walk
 	planning_subtrees = list(
@@ -23,10 +19,6 @@
 		/datum/ai_planning_subtree/territorial_struggle,
 		/datum/ai_planning_subtree/make_babies,
 		/datum/ai_planning_subtree/random_speech/cats,
-<<<<<<< Updated upstream
-=======
-		/datum/ai_planning_subtree/basic_melee_attack_subtree,
->>>>>>> Stashed changes
 	)
 
 /datum/ai_planning_subtree/reside_in_home
@@ -37,25 +29,13 @@
 
 /datum/ai_planning_subtree/reside_in_home/SelectBehaviors(datum/ai_controller/controller, seconds_per_tick)
 	var/mob/living/living_pawn = controller.pawn
-<<<<<<< Updated upstream
 	if(controller.blackboard_key_exists(BB_CAT_HOME))
 		controller.queue_behavior(/datum/ai_behavior/enter_cat_home, BB_CAT_HOME)
 		return
-=======
-
-	if(controller.blackboard_key_exists(BB_CAT_HOME))
-		controller.queue_behavior(/datum/ai_behavior/enter_cat_home, BB_CAT_HOME)
-		return
-
->>>>>>> Stashed changes
 	if(istype(living_pawn.loc, /obj/structure/cat_house))
 		if(SPT_PROB(leave_home_chance, seconds_per_tick))
 			controller.set_blackboard_key(BB_CAT_HOME, living_pawn.loc)
 		return SUBTREE_RETURN_FINISH_PLANNING
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 	if(SPT_PROB(reside_chance, seconds_per_tick))
 		controller.queue_behavior(/datum/ai_behavior/find_and_set/valid_home, BB_CAT_HOME, /obj/structure/cat_house)
 
@@ -64,10 +44,6 @@
 		if(home.resident_cat)
 			continue
 		return home
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 	return null
 
 /datum/ai_behavior/enter_cat_home
@@ -84,11 +60,7 @@
 	var/obj/structure/cat_house/home = controller.blackboard[target_key]
 	var/mob/living/basic/living_pawn = controller.pawn
 	if(living_pawn == home.resident_cat || isnull(home.resident_cat))
-<<<<<<< Updated upstream
 		living_pawn.melee_attack(home)
-=======
-		controller.ai_interact(target = home)
->>>>>>> Stashed changes
 		return AI_BEHAVIOR_DELAY | AI_BEHAVIOR_SUCCEEDED
 
 	return AI_BEHAVIOR_DELAY | AI_BEHAVIOR_FAILED
@@ -114,10 +86,6 @@
 	if(controller.blackboard_key_exists(BB_TRESSPASSER_TARGET))
 		controller.queue_behavior(/datum/ai_behavior/territorial_struggle, BB_TRESSPASSER_TARGET, BB_HOSTILE_MEOWS)
 		return SUBTREE_RETURN_FINISH_PLANNING
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 	controller.queue_behavior(/datum/ai_behavior/find_and_set/cat_tresspasser, BB_TRESSPASSER_TARGET, /mob/living/basic/pet/cat)
 
 /datum/ai_behavior/find_and_set/cat_tresspasser/search_tactic(datum/ai_controller/controller, locate_path, search_range)
@@ -165,15 +133,8 @@
 	var/list/threaten_list = controller.blackboard[cries_key]
 	if(length(threaten_list))
 		living_pawn.say(pick(threaten_list), forced = "ai_controller")
-<<<<<<< Updated upstream
 	if(!prob(end_battle_chance))
 		return
-=======
-
-	if(!prob(end_battle_chance))
-		return
-
->>>>>>> Stashed changes
 	//50 50 chance we lose
 	var/datum/ai_controller/loser_controller = prob(50) ? controller : target.ai_controller
 
@@ -200,10 +161,6 @@
 		return
 	return ..()
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 /datum/ai_behavior/find_hunt_target/hunt_mice/valid_dinner(mob/living/source, mob/living/mouse, radius)
 	if(mouse.stat == DEAD || mouse.mind)
 		return FALSE
@@ -249,21 +206,13 @@
 
 /datum/ai_planning_subtree/find_and_hunt_target/find_cat_food
 	target_key = BB_CAT_FOOD_TARGET
-<<<<<<< Updated upstream
 	hunting_behavior = /datum/ai_behavior/hunt_target/unarmed_attack_target/find_cat_food
-=======
-	hunting_behavior = /datum/ai_behavior/hunt_target/interact_with_target/find_cat_food
->>>>>>> Stashed changes
 	finding_behavior = /datum/ai_behavior/find_hunt_target/find_cat_food
 	hunt_targets = list(/obj/item/fish, /obj/item/food/deadmouse, /obj/item/food/fishmeat)
 	hunt_chance = 75
 	hunt_range = 9
 
-<<<<<<< Updated upstream
 /datum/ai_behavior/hunt_target/unarmed_attack_target/find_cat_food
-=======
-/datum/ai_behavior/hunt_target/interact_with_target/find_cat_food
->>>>>>> Stashed changes
 	always_reset_target = TRUE
 
 /datum/ai_behavior/find_hunt_target/find_cat_food/valid_dinner(mob/living/source, atom/dinner, radius)
@@ -280,10 +229,6 @@
 	if(!controller.blackboard_key_exists(BB_KITTEN_TO_FEED))
 		controller.queue_behavior(/datum/ai_behavior/find_and_set/valid_kitten, BB_KITTEN_TO_FEED, /mob/living/basic/pet/cat/kitten)
 		return
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 	controller.queue_behavior(/datum/ai_behavior/deliver_food_to_kitten, BB_KITTEN_TO_FEED, BB_FOOD_TO_DELIVER)
 
 /datum/ai_behavior/find_and_set/valid_kitten
@@ -291,26 +236,16 @@
 /datum/ai_behavior/find_and_set/valid_kitten/search_tactic(datum/ai_controller/controller, locate_path, search_range)
 	var/mob/living/kitten = locate(locate_path) in oview(search_range, controller.pawn)
 	//kitten already has food near it, go feed another hungry kitten
-<<<<<<< Updated upstream
 	if(isnull(kitten))
 		return null
-=======
-
-	if(isnull(kitten))
-		return null
-
->>>>>>> Stashed changes
 	var/list/nearby_food = typecache_filter_list(oview(2, kitten), controller.blackboard[BB_HUNTABLE_PREY])
 	if(kitten.stat != DEAD && !length(nearby_food))
 		return kitten
 	return null
 
 /datum/ai_behavior/deliver_food_to_kitten
-<<<<<<< Updated upstream
 
 /datum/ai_behavior/deliver_food_to_kitten
-=======
->>>>>>> Stashed changes
 	behavior_flags = AI_BEHAVIOR_REQUIRE_MOVEMENT | AI_BEHAVIOR_CAN_PLAN_DURING_EXECUTION | AI_BEHAVIOR_REQUIRE_REACH
 	action_cooldown = 5 SECONDS
 

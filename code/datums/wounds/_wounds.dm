@@ -514,11 +514,7 @@
 /datum/wound/proc/check_grab_treatments(obj/item/I, mob/user)
 	return FALSE
 
-<<<<<<< Updated upstream
 /// Like try_treating() but for unhanded interactions, used by joint dislocations for manual bodypart chiropractice for example. Ignores thick material checks since you can pop an arm into place through a thick suit unlike using sutures
-=======
-/// Like try_treating() but for unhanded interactions from humans, used by joint dislocations for manual bodypart chiropractice for example. Ignores thick material checks since you can pop an arm into place through a thick suit unlike using sutures
->>>>>>> Stashed changes
 /datum/wound/proc/try_handling(mob/living/user)
 	return FALSE
 

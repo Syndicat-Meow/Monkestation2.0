@@ -19,10 +19,6 @@
 
 /datum/ai_behavior/run_away_from_target/perform(seconds_per_tick, datum/ai_controller/controller, target_key, hiding_location_key)
 	if (controller.blackboard[BB_BASIC_MOB_STOP_FLEEING])
-<<<<<<< Updated upstream
-=======
-		finish_action(controller, succeeded = FALSE, target_key = target_key, hiding_location_key = hiding_location_key)
->>>>>>> Stashed changes
 		return AI_BEHAVIOR_DELAY
 	var/atom/target = controller.blackboard[hiding_location_key] || controller.blackboard[target_key]
 	if (QDELETED(target) || !can_see(controller.pawn, target, run_distance))
@@ -63,15 +59,10 @@
 	. = ..()
 	if (clear_failed_targets)
 		controller.clear_blackboard_key(target_key)
-<<<<<<< Updated upstream
 
 /datum/ai_behavior/run_away_from_target/run_and_shoot
 	clear_failed_targets = FALSE
 
-=======
-/datum/ai_behavior/run_away_from_target/run_and_shoot
-	clear_failed_targets = FALSE
->>>>>>> Stashed changes
 /datum/ai_behavior/run_away_from_target/run_and_shoot/perform(seconds_per_tick, datum/ai_controller/controller, target_key, hiding_location_key)
 	var/atom/target = controller.blackboard[target_key]
 	if(QDELETED(target))

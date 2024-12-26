@@ -174,6 +174,11 @@
 	if(!.)
 		clear_alert(ALERT_TEMPERATURE)
 
+/mob/living/basic/proc/apply_target_randomisation()
+	if (basic_mob_flags & PRECISE_ATTACK_ZONES)
+		return
+	AddElement(/datum/element/attack_zone_randomiser)
+
 /mob/living/basic/Life(seconds_per_tick = SSMOBS_DT, times_fired)
 	. = ..()
 	if(staminaloss > 0)

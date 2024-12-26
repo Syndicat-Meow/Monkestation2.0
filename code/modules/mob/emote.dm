@@ -10,8 +10,6 @@
 #define BEYBLADE_CONFUSION_INCREMENT (10 SECONDS)
 ///A max for how much confusion a carbon will be for beyblading
 #define BEYBLADE_CONFUSION_LIMIT (40 SECONDS)
-/// If this emote's sound is affected by TTS pitch
-var/affected_by_pitch = TRUE
 
 //The code execution of the emote datum is located at code/datums/emotes.dm
 /mob/proc/emote(act, m_type = null, message = null, intentional = FALSE, force_silence = FALSE)

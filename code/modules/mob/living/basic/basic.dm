@@ -133,6 +133,7 @@
 		speak_emote = string_list(speak_emote)
 
 	apply_atmos_requirements()
+	apply_target_randomisation()
 
 /// Ensures this mob can take atmospheric damage if it's supposed to
 /mob/living/basic/proc/apply_atmos_requirements()

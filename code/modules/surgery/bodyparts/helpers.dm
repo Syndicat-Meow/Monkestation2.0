@@ -82,7 +82,7 @@
 
 /mob/living/carbon/proc/get_missing_limbs()
 	RETURN_TYPE(/list)
-	var/list/zone_list = GLOB.all_body_zones.Copy()
+	var/list/full = GLOB.all_body_zones.Copy()
 	for(var/zone in full)
 		if(get_bodypart(zone))
 			full -= zone
@@ -99,7 +99,7 @@
 	return list()
 
 /mob/living/carbon/get_disabled_limbs()
-	var/list/zone_list = GLOB.all_body_zones.Copy()
+	var/list/full = GLOB.all_body_zones.Copy()
 	var/list/disabled = list()
 	for(var/zone in full)
 		var/obj/item/bodypart/affecting = get_bodypart(zone)

@@ -38,9 +38,13 @@
 		if(other.gender != living_pawn.gender && !(other.flags_1 & HOLOGRAM_1)) //Better safe than sorry ;_;
 			controller.set_blackboard_key(target_key, other)
 			return AI_BEHAVIOR_DELAY | AI_BEHAVIOR_SUCCEEDED
+<<<<<<< Updated upstream
 
 	return AI_BEHAVIOR_DELAY | AI_BEHAVIOR_FAILED
+=======
+>>>>>>> Stashed changes
 
+	return AI_BEHAVIOR_DELAY | AI_BEHAVIOR_FAILED
 
 /**
  * Reproduce.
@@ -56,13 +60,11 @@
 	set_movement_target(controller, target)
 
 /datum/ai_behavior/make_babies/perform(seconds_per_tick, datum/ai_controller/controller, target_key, child_types_key)
-	. = ..()
 	var/mob/target = controller.blackboard[target_key]
 	if(QDELETED(target) || target.stat != CONSCIOUS)
 		return AI_BEHAVIOR_DELAY | AI_BEHAVIOR_FAILED
 	var/mob/living/basic/living_pawn = controller.pawn
-	//living_pawn.set_combat_mode(FALSE)
-	living_pawn.istate &= ~ISTATE_HARM
+	living_pawn.set_combat_mode(FALSE)
 	living_pawn.melee_attack(target)
 	return AI_BEHAVIOR_DELAY | AI_BEHAVIOR_SUCCEEDED
 

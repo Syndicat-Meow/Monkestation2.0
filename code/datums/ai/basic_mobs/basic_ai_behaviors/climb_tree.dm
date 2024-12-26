@@ -14,7 +14,7 @@
 	behavior_flags = AI_BEHAVIOR_REQUIRE_MOVEMENT | AI_BEHAVIOR_REQUIRE_REACH
 
 /datum/ai_behavior/climb_tree/setup(datum/ai_controller/controller, target_key)
-	. = ..()
+
 	var/atom/target = controller.blackboard[target_key]
 	if(QDELETED(target))
 		return FALSE

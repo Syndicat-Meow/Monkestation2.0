@@ -6,6 +6,7 @@
 	melee_damage_lower = 7
 	melee_damage_upper = 15
 	ai_controller = /datum/ai_controller/basic_controller/simple_hostile
+<<<<<<< Updated upstream
 	icon = 'icons/mob/simple/pets.dmi'
 	icon_state = "cat2"
 	icon_living = "cat2"
@@ -69,10 +70,22 @@
 	melee_damage_upper = 20
 	ai_controller = /datum/ai_controller/basic_controller/simple_hostile
 	icon = 'icons/mob/simple/pets.dmi'
+=======
+	faction = list(FACTION_CAT, ROLE_SYNDICATE)
+
+/mob/living/basic/pet/cat/feral/tabby
+	name = "feral cat"
+	desc = "Kitty!! Wait, no no DON'T BITE-"
+	health = 40
+	maxHealth = 40
+	melee_damage_lower = 10
+	melee_damage_upper = 20
+>>>>>>> Stashed changes
 	icon_state = "cat"
 	icon_living = "cat"
 	icon_dead = "cat_dead"
 	held_state = "cat"
+<<<<<<< Updated upstream
 	speak_emote = list("purrs", "meows")
 	mob_size = MOB_SIZE_SMALL
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
@@ -121,3 +134,7 @@
 	add_verb(src, /mob/living/proc/toggle_resting)
 	add_traits(list(TRAIT_CATLIKE_GRACE, TRAIT_VENTCRAWLER_ALWAYS, TRAIT_WOUND_LICKER), INNATE_TRAIT)
 	ai_controller.set_blackboard_key(BB_HUNTABLE_PREY, typecacheof(huntable_items))
+=======
+	ai_controller = /datum/ai_controller/basic_controller/simple_hostile
+	faction = list(FACTION_CAT)
+>>>>>>> Stashed changes

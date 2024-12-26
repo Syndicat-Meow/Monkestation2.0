@@ -16,7 +16,14 @@
 	/// Reagents that should be added to the result
 	var/list/added_reagents
 
+<<<<<<< Updated upstream
 /datum/component/bakeable/Initialize(bake_result, required_bake_time, positive_result, use_large_steam_sprit, list/added_reagents)
+=======
+	/// Reagents that should be added to the result
+	var/list/added_reagents
+
+/datum/component/bakeable/Initialize(bake_result, required_bake_time, positive_result, use_large_steam_sprite)
+>>>>>>> Stashed changes
 	. = ..()
 	if(!isitem(parent)) //Only items support baking at the moment
 		return COMPONENT_INCOMPATIBLE

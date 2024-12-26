@@ -7,6 +7,10 @@
 	health = 50
 	maxHealth = 50
 	gender = FEMALE
+<<<<<<< Updated upstream
+=======
+	faction = list(FACTION_CAT)
+>>>>>>> Stashed changes
 	butcher_results = list(
 		/obj/item/organ/internal/brain = 1,
 		/obj/item/organ/internal/heart = 1,
@@ -35,6 +39,12 @@
 	)
 	AddElement(/datum/element/consumable_mob, reagents_list = on_consume)
 
+<<<<<<< Updated upstream
+=======
+/mob/living/basic/pet/cat/cak/add_cell_sample()
+	return
+
+>>>>>>> Stashed changes
 /mob/living/basic/pet/cat/cak/CheckParts(list/parts)
 	. = ..()
 	var/obj/item/organ/internal/brain/candidate = locate(/obj/item/organ/internal/brain) in contents

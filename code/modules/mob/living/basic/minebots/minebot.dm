@@ -249,10 +249,3 @@
 	if(!do_after(src, 6 SECONDS, my_target))
 		return
 	my_target.heal_overall_damage(brute = 50)
-
-/mob/living/basic/mining_drone/update_overlays()
-	. = ..()
-	if(stat == DEAD || isnull(selected_color))
-		return
-
-	. += combat_mode ? combat_overlay : neutral_overlay

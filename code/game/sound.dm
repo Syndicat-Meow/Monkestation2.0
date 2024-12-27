@@ -536,20 +536,7 @@ GLOBAL_LIST_EMPTY(cached_mixer_channels)
 				soundin = pick('sound/effects/treechop1.ogg', 'sound/effects/treechop2.ogg', 'sound/effects/treechop3.ogg')
 			if(SFX_ROCK_TAP)
 				soundin = pick('sound/effects/rocktap1.ogg', 'sound/effects/rocktap2.ogg', 'sound/effects/rocktap3.ogg')
-			if(SFX_CAT_MEOW)
-				soundin = pick_weight(list(
-					'sound/creatures/cat/cat_meow1.ogg' = 33,
-					'sound/creatures/cat/cat_meow2.ogg' = 33,
-					'sound/creatures/cat/cat_meow3.ogg' = 33,
-					'sound/creatures/cat/maggow.ogg' = 1,
-				))
-			if(SFX_CAT_PURR)
-				soundin = pick(
-					'sound/creatures/cat/cat_purr1.ogg',
-					'sound/creatures/cat/cat_purr2.ogg',
-					'sound/creatures/cat/cat_purr3.ogg',
-					'sound/creatures/cat/cat_purr4.ogg',
-				)
+
 			// monkestation start: more sound effects
 			if(SFX_BUTTON_CLICK)
 				soundin = 'monkestation/sound/effects/hl2/button-click.ogg'
@@ -558,20 +545,5 @@ GLOBAL_LIST_EMPTY(cached_mixer_channels)
 			if(SFX_LIGHTSWITCH)
 				soundin = 'monkestation/sound/effects/hl2/lightswitch.ogg'
 			// monkestation end
-
-			if(SFX_CAT_MEOW)
-				soundin = pick_weight(list(
-					'sound/creatures/cat/cat_meow1.ogg' = 33,
-					'sound/creatures/cat/cat_meow2.ogg' = 33,
-					'sound/creatures/cat/cat_meow3.ogg' = 33,
-					'sound/creatures/cat/oranges_meow1.ogg' = 1,
-				))
-			if(SFX_CAT_PURR)
-				soundin = pick(
-					'sound/creatures/cat/cat_purr1.ogg',
-					'sound/creatures/cat/cat_purr2.ogg',
-					'sound/creatures/cat/cat_purr3.ogg',
-					'sound/creatures/cat/cat_purr4.ogg',
-				)
 
 	return soundin

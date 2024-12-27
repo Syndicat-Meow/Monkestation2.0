@@ -46,53 +46,13 @@
 		/datum/pet_command/free,
 		/datum/pet_command/good_boy/wolf,
 		/datum/pet_command/follow/wolf,
-		/datum/pet_command/point_targeting/attack,
-		/datum/pet_command/point_targeting/fetch,
 		/datum/pet_command/play_dead,
+		/datum/pet_command/point_targeting/attack/dog,
+		/datum/pet_command/point_targeting/fetch,
 		/datum/pet_command/protect_owner,
 	)
 
-/mob/living/basic/mining/wolf/Initialize(mapload)
-	. = ..()
-
-	AddElement(/datum/element/footstep, FOOTSTEP_MOB_CLAW)
-	AddElement(/datum/element/ai_flee_while_injured)
-	AddElement(/datum/element/ai_retaliate)
-	AddComponent(/datum/component/basic_mob_ability_telegraph)
-	AddComponent(/datum/component/basic_mob_attack_telegraph, telegraph_duration = 0.6 SECONDS)
-
-	if(can_tame)
-		make_tameable()
-
-/mob/living/basic/mining/wolf/proc/make_tameable()
-	AddComponent(\
-		/datum/component/tameable,\
-		food_types = list(/obj/item/food/meat/slab),\
-		tame_chance = 15,\
-		bonus_tame_chance = 5,\
-		after_tame = CALLBACK(src, PROC_REF(tame_wolf)),\
-	)
-
-/mob/living/basic/mining/wolf/tamed(mob/living/tamer, atom/food)
-	new /obj/effect/temp_visual/heart(src.loc)
-	// ride wolf, life good
-	AddElement(/datum/element/ridable, /datum/component/riding/creature/wolf)
-	AddComponent(/datum/component/obeys_commands, pet_commands)
-	// this is purely a convenience thing once tamed so you can drag them away from shit
-	ai_controller.ai_traits = STOP_MOVING_WHEN_PULLED
-	// makes tamed wolves run away far less
-	ai_controller.set_blackboard_key(BB_BASIC_MOB_FLEE_DISTANCE, 7)
-
-/mob/living/basic/mining/wolf/proc/tame_wolf()
-	var/static/list/food_types = list(/obj/item/food/meat/slab)
-	AddComponent(/datum/component/tameable, food_types = food_types, tame_chance = 15, bonus_tame_chance = 5)
-
-//port the faction fix from goliath basicmob to make the wildlife hostile when tamed (and also help defuckulate reinforcements ai)
-//this should also produce interesting behavior where tamed wolves defend other tamed wolves.
-/mob/living/basic/mining/wolf/befriend(mob/living/new_friend)
-	. = ..()
-	faction = new_friend.faction.Copy()
-	visible_message(span_notice("[src] lowers [src.p_their()] snout at [new_friend]'s offering and begins to wag [src.p_their()] tail."))
+// Wolf
 
 /obj/item/crusher_trophy/wolf_ear
 	name = "wolf ear"
@@ -105,3 +65,39 @@
 
 /obj/item/crusher_trophy/wolf_ear/on_mark_detonation(mob/living/target, mob/living/user)
 	user.apply_status_effect(/datum/status_effect/speed_boost, 1 SECONDS)
+
+/mob/living/basic/mining/wolf/Initialize(mapload)
+	. = ..()
+
+	ADD_TRAIT(src, TRAIT_WOUND_LICKER, INNATE_TRAIT)
+	AddElement(/datum/element/footstep, FOOTSTEP_MOB_CLAW)
+	AddElement(/datum/element/ai_flee_while_injured)
+	AddElement(/datum/element/ai_retaliate)
+	AddComponent(/datum/component/basic_mob_ability_telegraph)
+	AddComponent(/datum/component/basic_mob_attack_telegraph, telegraph_duration = 0.6 SECONDS)
+
+	if(can_tame)
+		make_tameable()
+
+/mob/living/basic/mining/wolf/proc/make_tameable()
+	AddComponent(/datum/component/tameable, food_types = list(/obj/item/food/meat/slab), tame_chance = 15, bonus_tame_chance = 5)
+
+/mob/living/basic/mining/wolf/proc/tamed()
+	new /obj/effect/temp_visual/heart(src.loc)
+	// ride wolf, life good
+	AddElement(/datum/element/ridable, /datum/component/riding/creature/wolf)
+	AddComponent(/datum/component/obeys_commands, pet_commands)
+	response_help_simple = "pet"
+	response_help_continuous = "pets"
+	AddElement(/datum/element/pet_bonus, "howls happily!")
+	// this is purely a convenience thing once tamed so you can drag them away from shit
+	ai_controller.ai_traits = STOP_MOVING_WHEN_PULLED
+	// makes tamed wolves run away far less
+	ai_controller.set_blackboard_key(BB_BASIC_MOB_FLEE_DISTANCE, 7)
+
+//port the faction fix from goliath basicmob to make the wildlife hostile when tamed (and also help defuckulate reinforcements ai)
+//this should also produce interesting behavior where tamed wolves defend other tamed wolves.
+/mob/living/basic/mining/wolf/befriend(mob/living/new_friend)
+	. = ..()
+	faction = new_friend.faction.Copy()
+	visible_message(span_notice("[src] lowers [src.p_their()] snout at [new_friend]'s offering and begins to wag [src.p_their()] tail."))

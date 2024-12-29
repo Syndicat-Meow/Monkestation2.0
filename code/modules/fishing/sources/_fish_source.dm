@@ -84,9 +84,6 @@ GLOBAL_LIST_INIT(specific_fish_icons, zebra_typecacheof(list(
 /datum/fish_source/proc/calculate_difficulty(result, obj/item/fishing_rod/rod, mob/fisherman, datum/fishing_challenge/challenge)
 	. = fishing_difficulty
 
-	// Difficulty modifier added by having the Settler quirk
-	if(HAS_TRAIT(fisherman, TRAIT_EXPERT_FISHER))
-		. += EXPERT_FISHER_DIFFICULTY_MOD
 
 	// Difficulty modifier added by the fisher's skill level
 	if(!challenge || !(challenge.special_effects & FISHING_MINIGAME_RULE_NO_EXP))

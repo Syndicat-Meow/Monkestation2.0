@@ -1413,11 +1413,6 @@
 			immutable_speedies += thing.slowdown
 		else
 			speedies += thing.slowdown
-
-	//if  we have TRAIT_STURDY_FRAME, we reduce our overall speed penalty UNLESS that penalty would be a negative value, and therefore a speed boost.
-	if(speedies > 0 && HAS_TRAIT(src, TRAIT_STURDY_FRAME))
-		speedies *= 0.2
-
 	if(immutable_speedies)
 		add_or_update_variable_movespeed_modifier(
 			/datum/movespeed_modifier/equipment_speedmod/immutable,

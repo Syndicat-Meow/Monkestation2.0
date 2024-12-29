@@ -239,14 +239,6 @@
 	/// Return to not reduce hunger at all
 	#define HOMEOSTASIS_NO_HUNGER (1<<1)
 
-///Called when living finish eat (/datum/component/edible/proc/On_Consume)
-#define COMSIG_LIVING_FINISH_EAT "living_finish_eat"
-
-/// From /datum/element/basic_eating/try_eating()
-#define COMSIG_MOB_PRE_EAT "mob_pre_eat"
-	///cancel eating attempt
-	#define COMSIG_MOB_CANCEL_EAT (1<<0)
-
 /// From /datum/element/basic_eating/finish_eating()
 #define COMSIG_MOB_ATE "mob_ate"
 	///cancel post eating

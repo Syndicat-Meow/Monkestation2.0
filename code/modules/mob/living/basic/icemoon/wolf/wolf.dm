@@ -73,6 +73,10 @@
 		after_tame = CALLBACK(src, PROC_REF(tame_wolf)),\
 	)
 
+/mob/living/basic/mining/wolf/proc/tame_wolf()
+	var/static/list/food_types = list(/obj/item/food/meat/slab)
+	AddComponent(/datum/component/tameable, food_types = food_types, tame_chance = 15, bonus_tame_chance = 5)
+
 /mob/living/basic/mining/wolf/tamed(mob/living/tamer, atom/food)
 	new /obj/effect/temp_visual/heart(src.loc)
 	// ride wolf, life good
@@ -82,10 +86,6 @@
 	ai_controller.ai_traits = STOP_MOVING_WHEN_PULLED
 	// makes tamed wolves run away far less
 	ai_controller.set_blackboard_key(BB_BASIC_MOB_FLEE_DISTANCE, 7)
-
-/mob/living/basic/mining/wolf/proc/tame_wolf()
-	var/static/list/food_types = list(/obj/item/food/meat/slab)
-	AddComponent(/datum/component/tameable, food_types = food_types, tame_chance = 15, bonus_tame_chance = 5)
 
 //port the faction fix from goliath basicmob to make the wildlife hostile when tamed (and also help defuckulate reinforcements ai)
 //this should also produce interesting behavior where tamed wolves defend other tamed wolves.

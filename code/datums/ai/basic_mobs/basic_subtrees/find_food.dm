@@ -10,12 +10,13 @@
 	var/emotes_blackboard_list = BB_EAT_EMOTES
 
 /datum/ai_planning_subtree/find_food/SelectBehaviors(datum/ai_controller/controller, seconds_per_tick)
-	. = ..()
-	if(controller.blackboard_key_exists(BB_BASIC_MOB_CURRENT_TARGET))
-		// Busy with something
+	if(controller.blackboard[BB_NEXT_FOOD_EAT] > world.time)
 		return
-
-	controller.queue_behavior(finding_behavior, BB_BASIC_MOB_CURRENT_TARGET, controller.blackboard[food_list_key])
+	if(!controller.blackboard_key_exists(found_food_key))
+		controller.queue_behavior(finding_behavior, found_food_key, controller.blackboard[food_list_key])
+		return
+	controller.queue_behavior(/datum/ai_behavior/interact_with_target/eat_food, found_food_key, emotes_blackboard_list)
+	return SUBTREE_RETURN_FINISH_PLANNING
 
 /datum/ai_behavior/interact_with_target/eat_food
 	///default list of actions we take after eating

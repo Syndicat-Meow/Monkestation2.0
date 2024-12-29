@@ -83,7 +83,8 @@
 	if (tame)
 		faction |= FACTION_NEUTRAL
 	else
-		AddComponent(/datum/component/tameable, food_types = list(/obj/item/food/cheese), tame_chance = 100)
+		var/static/list/food_types = list(/obj/item/food/cheese)
+		AddComponent(/datum/component/tameable, food_types = food_types, tame_chance = 100)
 
 /mob/living/basic/mouse/Destroy()
 	SSmobs.cheeserats -= src
@@ -461,12 +462,6 @@
 		BB_BASIC_MOB_CURRENT_TARGET = null, // heathen
 		BB_CURRENT_HUNTING_TARGET = null, // cheese
 		BB_LOW_PRIORITY_HUNTING_TARGET = null, // cable
-		BB_OWNER_SELF_HARM_RESPONSES = list(
-			"*me cleans its whiskers in disapproval.",
-			"*me squeaks sadly.",
-			"*me sheds a single small tear.",
-			"*me squaks as if shouting 'MY LIEGE!'."
-		)
 	)
 
 	ai_traits = STOP_MOVING_WHEN_PULLED

@@ -29,25 +29,32 @@
 	src.drinking = drinking
 	src.food_types = food_types
 
-	//this lets players eat
+	RegisterSignal(target, COMSIG_ATOM_ITEM_INTERACTION, PROC_REF(try_feed))
 	RegisterSignal(target, COMSIG_LIVING_UNARMED_ATTACK, PROC_REF(on_unarm_attack))
-	//this lets ai eat. yes, i'm serious
-	RegisterSignal(target, COMSIG_HOSTILE_PRE_ATTACKINGTARGET, PROC_REF(on_pre_attackingtarget))
 
 /datum/element/basic_eating/Detach(datum/target)
-	UnregisterSignal(target, list(COMSIG_LIVING_UNARMED_ATTACK, COMSIG_HOSTILE_PRE_ATTACKINGTARGET))
+
+	UnregisterSignal(target, list(
+		COMSIG_LIVING_UNARMED_ATTACK,
+		COMSIG_ATOM_ITEM_INTERACTION,
+	))
 	return ..()
+
+/datum/element/basic_eating/proc/try_feed(atom/source, mob/living/user, atom/possible_food)
+	SIGNAL_HANDLER
+	if(user.combat_mode || !is_type_in_list(possible_food, food_types))
+		return NONE
+
+	try_eating(source, possible_food, user)
 
 /datum/element/basic_eating/proc/on_unarm_attack(mob/living/eater, atom/target, proximity, modifiers)
 	SIGNAL_HANDLER
 	try_eating(eater, target)
 
-/datum/element/basic_eating/proc/on_pre_attackingtarget(mob/living/eater, atom/target)
-	SIGNAL_HANDLER
-	try_eating(eater, target)
-
-/datum/element/basic_eating/proc/try_eating(mob/living/eater, atom/target)
+/datum/element/basic_eating/proc/try_eating(mob/living/eater, atom/target, mob/living/feeder)
 	if(!is_type_in_list(target, food_types))
+		return FALSE
+	if(SEND_SIGNAL(eater, COMSIG_MOB_PRE_EAT, target, feeder) & COMSIG_MOB_CANCEL_EAT)
 		return FALSE
 	var/eat_verb
 	if(drinking)
@@ -61,27 +68,31 @@
 			eater.heal_overall_damage(heal_amt)
 		eater.visible_message(span_notice("[eater] [eat_verb]s [target]."), span_notice("You [eat_verb] [target][healed ? ", restoring some health" : ""]."))
 		finish_eating(eater, target)
-		return
+		return TRUE
 
 	if (damage_amount > 0 && damage_type)
 		eater.apply_damage(damage_amount, damage_type)
 		eater.visible_message(span_notice("[eater] [eat_verb]s [target], and seems to hurt itself."), span_notice("You [eat_verb] [target], hurting yourself in the process."))
-		finish_eating(eater, target)
-		return
+		finish_eating(eater, target, feeder)
+		return TRUE
 
 	eater.visible_message(span_notice("[eater] [eat_verb]s [target]."), span_notice("You [eat_verb] [target]."))
-	finish_eating(eater, target)
+	finish_eating(eater, target, feeder)
+	return TRUE
 
-/datum/element/basic_eating/proc/finish_eating(mob/living/eater, atom/target)
+/datum/element/basic_eating/proc/finish_eating(mob/living/eater, atom/target, mob/living/feeder)
+	set waitfor = FALSE
 	if(drinking)
 		////playsound(eater.loc,'sound/items/drink.ogg', rand(10,50), TRUE) // monkestation edit original
 		playsound(eater.loc,get_drink_sound(eater), rand(10,50), TRUE) // monkestation edit: synthesized drink sounds
 	else
 		playsound(eater.loc,'sound/items/eatfood.ogg', rand(10,50), TRUE)
-	SEND_SIGNAL(eater, COMSIG_LIVING_ATE, target)
+	var/atom/final_target = target
 	SEND_SIGNAL(eater, COMSIG_EMOTION_STORE, null, EMOTION_HAPPY, "I ate [target], I really like [target].")
-	if (isstack(target))
-		var/obj/item/stack/stack = target
-		stack.use(1)
+	if(SEND_SIGNAL(eater, COMSIG_MOB_ATE, final_target, feeder) & COMSIG_MOB_TERMINATE_EAT)
 		return
-	qdel(target)
+	if(isstack(target)) //if stack, only consume 1
+		var/obj/item/stack/food_stack = target
+		final_target = food_stack.split_stack(eater, 1)
+	eater.log_message("has eaten [target]!", LOG_ATTACK)
+	qdel(final_target)

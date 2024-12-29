@@ -31,10 +31,10 @@
 	attack_vis_effect = ATTACK_EFFECT_CLAW
 
 /datum/emote/cat
-	mob_type_allowed_typecache = /mob/living/basic/pet/cat
+	mob_type_allowed_typecache = /mob/living/basic/pet/cat/feral
 	mob_type_blacklist_typecache = list()
 
-/datum/emote/cat/meow
+/datum/emote/living/basic/pet/cat/meow
 	key = "meow"
 	key_third_person = "meows"
 	message = "meows!"
@@ -42,7 +42,7 @@
 	vary = TRUE
 	sound = SFX_CAT_MEOW
 
-/datum/emote/cat/purr
+/datum/emote/living/basic/pet/cat/purr
 	key = "purr"
 	key_third_person = "purrs"
 	message = "purrs."
@@ -93,10 +93,10 @@
 	attack_vis_effect = ATTACK_EFFECT_CLAW
 
 /datum/emote/cat
-	mob_type_allowed_typecache = /mob/living/basic/pet/cat
+	mob_type_allowed_typecache = /mob/living/basic/pet/cat/feraltabby
 	mob_type_blacklist_typecache = list()
 
-/datum/emote/cat/meow
+/datum/emote/living/basic/pet/cat/meow
 	key = "meow"
 	key_third_person = "meows"
 	message = "meows!"
@@ -104,13 +104,14 @@
 	vary = TRUE
 	sound = SFX_CAT_MEOW
 
-/datum/emote/cat/purr
+/datum/emote/living/basic/pet/cat/purr
 	key = "purr"
 	key_third_person = "purrs"
 	message = "purrs."
 	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
 	vary = TRUE
 	sound = SFX_CAT_PURR
+
 /mob/living/basic/pet/cat/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/ai_retaliate)

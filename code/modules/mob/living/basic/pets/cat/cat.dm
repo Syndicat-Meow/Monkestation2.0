@@ -59,7 +59,7 @@
 	mob_type_allowed_typecache = /mob/living/basic/pet/cat
 	mob_type_blacklist_typecache = list()
 
-/datum/emote/cat/meow
+/datum/emote/living/basic/pet/cat/meow
 	key = "meow"
 	key_third_person = "meows"
 	message = "meows!"
@@ -67,7 +67,7 @@
 	vary = TRUE
 	sound = SFX_CAT_MEOW
 
-/datum/emote/cat/purr
+/datum/emote/living/basic/pet/cat/purr
 	key = "purr"
 	key_third_person = "purrs"
 	message = "purrs."

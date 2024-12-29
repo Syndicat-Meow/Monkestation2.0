@@ -238,8 +238,3 @@
 	#define HOMEOSTASIS_HANDLED (1<<0)
 	/// Return to not reduce hunger at all
 	#define HOMEOSTASIS_NO_HUNGER (1<<1)
-
-/// From /datum/element/basic_eating/finish_eating()
-#define COMSIG_MOB_ATE "mob_ate"
-	///cancel post eating
-	#define COMSIG_MOB_TERMINATE_EAT (1<<0)

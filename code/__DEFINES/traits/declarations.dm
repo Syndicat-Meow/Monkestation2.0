@@ -1236,7 +1236,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 /* #define TRAIT_ALWAYS_WANTED "always_wanted" */
 
 /// Trait given to mobs that have the basic eating element
-#define TRAIT_MOB_EATER "mob_eater"
+/* #define TRAIT_MOB_EATER "mob_eater" */
 /// Trait which means whatever has this is dancing by a dance machine
 /* #define TRAIT_DISCO_DANCER "disco_dancer" */
 
@@ -1261,7 +1261,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 /* #define TRAIT_EXPERT_FISHER "expert_fisher" */ // fishing is easier
 /* #define TRAIT_ROUGHRIDER "roughrider" */ // you can improve speed on mounted animals with a good mood
 /* #define TRAIT_STUBBY_BODY "stubby_body" */ // you have a stubby body that lessens your agility
-#define TRAIT_BEAST_EMPATHY "beast_empathy" // you're good with animals, such as with taming them
+/* #define TRAIT_BEAST_EMPATHY "beast_empathy" */ // you're good with animals, such as with taming them
 /* #define TRAIT_STURDY_FRAME "sturdy_frame" */ // you suffer much lesser effects from equipment that slows you down
 
 /// This item cannot be selected for or used by a theft objective (Spies, Traitors, etc.)

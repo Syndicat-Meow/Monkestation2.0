@@ -13,6 +13,7 @@
 
 	/// REF() to the mind which placed us in an oven
 	var/who_baked_us
+
 	/// Reagents that should be added to the result
 	var/list/added_reagents
 
@@ -73,6 +74,11 @@
 	var/atom/original_object = parent
 	var/obj/item/plate/oven_tray/used_tray = original_object.loc
 	var/atom/baked_result = new bake_result(used_tray)
+	if(baked_result.reagents && positive_result) //make space and tranfer reagents if it has any & the resulting item isn't bad food or other bad baking result
+		baked_result.reagents.clear_reagents()
+		original_object.reagents.trans_to(baked_result, original_object.reagents.total_volume)
+		if(added_reagents) // Add any new reagents that should be added
+			baked_result.reagents.add_reagent_list(added_reagents)
 
 	if(who_baked_us)
 		ADD_TRAIT(baked_result, TRAIT_FOOD_CHEF_MADE, who_baked_us)
@@ -85,10 +91,16 @@
 	used_tray.AddToPlate(baked_result)
 
 	if(positive_result)
-		used_oven.visible_message(span_notice("You smell something great coming from [used_oven]."), blind_message = span_notice("You smell something great..."))
-		BLACKBOX_LOG_FOOD_MADE(baked_result)
+		used_oven.visible_message(
+			span_notice("You smell something great coming from [used_oven]."),
+			blind_message = span_notice("You smell something great..."),
+		)
+		BLACKBOX_LOG_FOOD_MADE(baked_result.type)
 	else
-		used_oven.visible_message(span_warning("You smell a burnt smell coming from [used_oven]."), blind_message = span_warning("You smell a burnt smell..."))
+		used_oven.visible_message(
+			span_warning("You smell a burnt smell coming from [used_oven]."),
+			blind_message = span_warning("You smell a burnt smell..."),
+		)
 	SEND_SIGNAL(parent, COMSIG_ITEM_BAKED, baked_result)
 	qdel(parent)
 
@@ -110,4 +122,4 @@
 		else if(current_bake_time <= required_bake_time)
 			examine_list += span_notice("[parent] seems to be almost finished baking!")
 	else
-		examine_list += span_danger("[parent] should probably not be baked for much longer!")
+		examine_list += span_danger("[parent] should probably not be put in the oven.")

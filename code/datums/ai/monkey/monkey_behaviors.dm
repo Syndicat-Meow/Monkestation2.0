@@ -189,7 +189,7 @@
 		else
 			if(disarm)
 				living_pawn.istate |= ISTATE_SECONDARY
-			living_pawn.UnarmedAttack(target, null) //Fake a right click if we're disarmin
+			controller.ai_interact(target = target, modifiers = disarm ? list(RIGHT_CLICK = TRUE) : null) //Fake a right click if we're disarmin
 			living_pawn.istate &= ~ISTATE_SECONDARY
 		controller.set_blackboard_key(BB_MONKEY_GUN_WORKED, TRUE) // We reset their memory of the gun being 'broken' if they accomplish some other attack
 	else if(weapon)

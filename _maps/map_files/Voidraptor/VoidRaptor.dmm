@@ -71277,7 +71277,7 @@
 /area/station/engineering/atmos)
 "tLD" = (
 /obj/structure/bed/dogbed/runtime,
-/mob/living/basic/pet/cat/runtime{
+/mob/living/simple_animal/pet/cat/runtime{
 	icon_dead = "original_dead";
 	icon_living = "original";
 	icon_state = "original"

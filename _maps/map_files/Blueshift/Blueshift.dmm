@@ -19656,7 +19656,7 @@
 "dLv" = (
 /obj/structure/bed/dogbed/runtime,
 /obj/item/toy/cattoy,
-/mob/living/basic/pet/cat/runtime,
+/mob/living/simple_animal/pet/cat/runtime,
 /obj/machinery/requests_console/directional/east{
 	department = "Chief Medical Officer's Desk";
 	name = "Chief Medical Officer's Requests Console"

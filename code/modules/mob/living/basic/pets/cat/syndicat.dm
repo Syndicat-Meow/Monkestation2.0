@@ -31,26 +31,6 @@
 	attack_sound = 'sound/weapons/slash.ogg'
 	attack_vis_effect = ATTACK_EFFECT_CLAW
 
-/datum/emote/cat
-	mob_type_allowed_typecache = /mob/living/basic/pet/cat/syndicat
-	mob_type_blacklist_typecache = list()
-
-/datum/emote/living/basic/pet/cat/meow
-	key = "meow"
-	key_third_person = "meows"
-	message = "meows!"
-	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
-	vary = TRUE
-	sound = SFX_CAT_MEOW
-
-/datum/emote/living/basic/pet/cat/purr
-	key = "purr"
-	key_third_person = "purrs"
-	message = "purrs."
-	emote_type = EMOTE_VISIBLE | EMOTE_AUDIBLE
-	vary = TRUE
-	sound = SFX_CAT_PURR
-
 /mob/living/basic/pet/cat/syndicat/Initialize(mapload)
 	. = ..()
 	ai_controller.set_blackboard_key(BB_HUNTABLE_PREY, typecacheof(huntable_items))

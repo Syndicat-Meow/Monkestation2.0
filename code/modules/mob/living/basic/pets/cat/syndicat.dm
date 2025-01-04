@@ -53,12 +53,6 @@
 
 /mob/living/basic/pet/cat/syndicat/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/ai_retaliate)
-	AddElement(/datum/element/pet_bonus, "purr", /datum/mood_event/pet_animal)
-	AddElement(/datum/element/footstep, footstep_type = FOOTSTEP_MOB_CLAW)
-	add_cell_sample()
-	add_verb(src, /mob/living/proc/toggle_resting)
-	add_traits(list(TRAIT_CATLIKE_GRACE, TRAIT_VENTCRAWLER_ALWAYS, TRAIT_WOUND_LICKER), INNATE_TRAIT)
 	ai_controller.set_blackboard_key(BB_HUNTABLE_PREY, typecacheof(huntable_items))
 	var/obj/item/implant/toinstall = list(/obj/item/implant/weapons_auth, /obj/item/implant/explosive)
 	for(var/obj/item/implant/original_implants as anything in toinstall)

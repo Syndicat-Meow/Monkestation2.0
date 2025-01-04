@@ -265,8 +265,6 @@
 		/mob/living/basic/mouse,
 		/mob/living/basic/mushroom,
 		/mob/living/basic/parrot,
-		/mob/living/basic/pet/cat,
-		/mob/living/basic/pet/cat/cak,
 		/mob/living/basic/pet/dog/breaddog,
 		/mob/living/basic/pet/dog/corgi,
 		/mob/living/basic/pet/dog/pug,

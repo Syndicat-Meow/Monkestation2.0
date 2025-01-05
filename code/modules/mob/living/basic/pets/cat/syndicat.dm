@@ -33,7 +33,6 @@
 
 /mob/living/basic/pet/cat/syndicat/Initialize(mapload)
 	. = ..()
-	ai_controller.set_blackboard_key(BB_HUNTABLE_PREY, typecacheof(huntable_items))
 	var/obj/item/implant/toinstall = list(/obj/item/implant/weapons_auth, /obj/item/implant/explosive)
 	for(var/obj/item/implant/original_implants as anything in toinstall)
 		var/obj/item/implant/copied_implant = new original_implants.type

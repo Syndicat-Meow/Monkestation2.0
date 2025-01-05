@@ -29395,7 +29395,7 @@
 /area/station/engineering/storage_shared)
 "fGV" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/pet/cat,
+/mob/living/basic/pet/cat,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
@@ -83702,7 +83702,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical/central)
 "qoz" = (
-/mob/living/simple_animal/pet/cat/space{
+/mob/living/basic/pet/cat/space{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,

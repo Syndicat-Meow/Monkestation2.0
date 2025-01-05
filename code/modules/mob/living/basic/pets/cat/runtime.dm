@@ -24,6 +24,7 @@
 
 /mob/living/basic/pet/cat/runtime/Initialize(mapload)
 	. = ..()
+	REGISTER_REQUIRED_MAP_ITEM(1, 1)
 	register_family = CALLBACK(src, PROC_REF(Write_Memory))
 	SSticker.OnRoundend(register_family)
 	if(mapload)

@@ -5,6 +5,7 @@
 		BB_HOSTILE_MEOWS = list("Mawwww", "Mrewwww", "mhhhhng..."),
 		BB_BABIES_PARTNER_TYPES = list(/mob/living/basic/pet/cat),
 		BB_BABIES_CHILD_TYPES = list(/mob/living/basic/pet/cat/kitten),
+		BB_HUNTABLE_PREY = list(),
 	)
 
 	ai_movement = /datum/ai_movement/basic_avoidance

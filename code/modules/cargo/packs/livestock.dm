@@ -28,8 +28,8 @@
 	for(var/i in 1 to 49)
 		new /mob/living/basic/butterfly(.)
 
-/datum/supply_pack/critter/cat
-	name = "Cat Crate"
+/datum/supply_pack/critter/calico
+	name = "Calico Crate"
 	desc = "The cat goes meow! Comes with a collar and a nice cat toy! Cheeseburger not included."//i can't believe im making this reference
 	cost = CARGO_CRATE_VALUE * 10 //Cats are worth as much as corgis.
 	contains = list(
@@ -37,9 +37,9 @@
 		/obj/item/clothing/neck/petcollar,
 		/obj/item/toy/cattoy,
 	)
-	crate_name = "cat crate"
+	crate_name = "Calico crate"
 
-/datum/supply_pack/critter/cat/generate()
+/datum/supply_pack/critter/calico/generate()
 	. = ..()
 	if(!prob(50))
 		return
@@ -48,6 +48,111 @@
 		return
 	qdel(delete_cat)
 	new /mob/living/basic/pet/cat/_proc(.)
+
+/datum/supply_pack/critter/tabby
+	name = "Tabby Crate"
+	desc = "The cat goes meow! Comes with a collar and a nice cat toy! Cheeseburger not included."//i can't believe im making this reference
+	cost = CARGO_CRATE_VALUE * 10 //Cats are worth as much as corgis.
+	contains = list(
+		/mob/living/basic/pet/cat/tabby,
+		/obj/item/clothing/neck/petcollar,
+		/obj/item/toy/cattoy,
+	)
+	crate_name = "Tabby crate"
+
+/datum/supply_pack/critter/tabby/generate()
+	. = ..()
+	if(!prob(50))
+		return
+	var/mob/living/basic/pet/cat/tabby/delete_cat = locate() in .
+	if(isnull(delete_cat))
+		return
+	qdel(delete_cat)
+	new /mob/living/basic/pet/cat/tabbym(.)
+
+/datum/supply_pack/critter/void
+	name = "Black Crate"
+	desc = "Apparently comes with the cutest darkness available"//i can't believe im making this reference
+	cost = CARGO_CRATE_VALUE * 10 //Cats are worth as much as corgis.
+	contains = list(
+		/mob/living/basic/pet/cat/void,
+		/obj/item/clothing/neck/petcollar,
+		/obj/item/toy/cattoy,
+	)
+	crate_name = "Crate of pure darkness"
+
+/datum/supply_pack/critter/void/generate()
+	. = ..()
+	if(!prob(50))
+		return
+	var/mob/living/basic/pet/cat/void/delete_cat = locate() in .
+	if(isnull(delete_cat))
+		return
+	qdel(delete_cat)
+	new /mob/living/basic/pet/cat/voidm(.)
+
+/datum/supply_pack/critter/siamese
+	name = "Siamese Crate"
+	desc = "The cat goes meow! Comes with a collar and a nice cat toy! Cheeseburger not included."//i can't believe im making this reference
+	cost = CARGO_CRATE_VALUE * 10 //Cats are worth as much as corgis.
+	contains = list(
+		/mob/living/basic/pet/cat/siamese,
+		/obj/item/clothing/neck/petcollar,
+		/obj/item/toy/cattoy,
+	)
+	crate_name = "Siamese crate"
+
+/datum/supply_pack/critter/siamese/generate()
+	. = ..()
+	if(!prob(50))
+		return
+	var/mob/living/basic/pet/cat/siamese/delete_cat = locate() in .
+	if(isnull(delete_cat))
+		return
+	qdel(delete_cat)
+	new /mob/living/basic/pet/cat/siamesem(.)
+
+/datum/supply_pack/critter/white
+	name = "Snowball Crate"
+	desc = "They just keep calling it snowball, but is it really just a white cat."//i can't believe im making this reference
+	cost = CARGO_CRATE_VALUE * 10 //Cats are worth as much as corgis.
+	contains = list(
+		/mob/living/basic/pet/cat/white,
+		/obj/item/clothing/neck/petcollar,
+		/obj/item/toy/cattoy,
+	)
+	crate_name = "White cat crate"
+
+/datum/supply_pack/critter/white/generate()
+	. = ..()
+	if(!prob(50))
+		return
+	var/mob/living/basic/pet/cat/white/delete_cat = locate() in .
+	if(isnull(delete_cat))
+		return
+	qdel(delete_cat)
+	new /mob/living/basic/pet/cat/whitem(.)
+
+/datum/supply_pack/critter/rusblue
+	name = "Russian Blue Crate"
+	desc = "The cat goes meow! Comes with a collar and a nice cat toy! Cheeseburger not included."//i can't believe im making this reference
+	cost = CARGO_CRATE_VALUE * 10 //Cats are worth as much as corgis.
+	contains = list(
+		/mob/living/basic/pet/cat/rusblue,
+		/obj/item/clothing/neck/petcollar,
+		/obj/item/toy/cattoy,
+	)
+	crate_name = "Russian Blue crate"
+
+/datum/supply_pack/critter/rusblue/generate()
+	. = ..()
+	if(!prob(50))
+		return
+	var/mob/living/basic/pet/cat/rusblue/delete_cat = locate() in .
+	if(isnull(delete_cat))
+		return
+	qdel(delete_cat)
+	new /mob/living/basic/pet/cat/rusbluem(.)
 
 /datum/supply_pack/critter/chick
 	name = "Chicken Crate"

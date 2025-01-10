@@ -237,4 +237,78 @@
 	icon_living = "cat"
 	icon_dead = "cat_dead"
 	held_state = "cat"
+	desc = "Hopefully no one will confuse this for the real runtime."
+	faction = list(FACTION_CAT)
+
+/mob/living/basic/pet/cat/white
+	icon_state = "white"
+	icon_living = "white"
+	icon_dead = "white_dead"
+	held_state = "white"
+	desc = "One will never know if this white fur is authentic or if someone decided to bleach a cat."
+	faction = list(FACTION_CAT)
+
+/mob/living/basic/pet/cat/void
+	icon_state = "void"
+	icon_living = "void"
+	icon_dead = "void_dead"
+	held_state = "void"
+	desc = "The Void always stares back."
+	faction = list(FACTION_CAT)
+
+/mob/living/basic/pet/cat/siamese
+	icon_state = "siamese"
+	icon_living = "siamese"
+	icon_dead = "siamese_dead"
+	held_state = "siamese"
+	faction = list(FACTION_CAT)
+
+/mob/living/basic/pet/cat/rusblue
+	icon_state = "rusblue"
+	icon_living = "rusblue"
+	icon_dead = "rusblue_dead"
+	held_state = "rusblue"
+	faction = list(FACTION_CAT)
+adwdawdwadawdawd
+/mob/living/basic/pet/cat/tabbym
+	icon_state = "cat"
+	icon_living = "cat"
+	icon_dead = "cat_dead"
+	held_state = "cat"
+	desc = "Hopefully no one will confuse this for the real runtime."
+	gender = MALE
+	faction = list(FACTION_CAT)
+
+/mob/living/basic/pet/cat/whitem
+	icon_state = "white"
+	icon_living = "white"
+	icon_dead = "white_dead"
+	held_state = "white"
+	desc = "One will never know if this white fur is authentic or if someone decided to bleach a cat."
+	gender = MALE
+	faction = list(FACTION_CAT)
+
+/mob/living/basic/pet/cat/voidm
+	icon_state = "void"
+	icon_living = "void"
+	icon_dead = "void_dead"
+	held_state = "void"
+	desc = "The Void always stares back."
+	gender = MALE
+	faction = list(FACTION_CAT)
+
+/mob/living/basic/pet/cat/siamesem
+	icon_state = "siamese"
+	icon_living = "siamese"
+	icon_dead = "siamese_dead"
+	held_state = "siamese"
+	gender = MALE
+	faction = list(FACTION_CAT)
+
+/mob/living/basic/pet/cat/rusbluem
+	icon_state = "rusblue"
+	icon_living = "rusblue"
+	icon_dead = "rusblue_dead"
+	held_state = "rusblue"
+	gender = MALE
 	faction = list(FACTION_CAT)

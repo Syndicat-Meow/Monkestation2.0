@@ -133,6 +133,7 @@
 		/mob/living/basic/pet/cat/syndicat_docile
 	)
 	crate_name = "battered crate"
+	crate_type = /obj/structure/closet/crate/syndicrate
 
 /datum/supply_pack/imports/contraband
 	name = "'Contraband' Crate"

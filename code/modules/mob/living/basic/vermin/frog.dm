@@ -83,8 +83,8 @@ monkestation end */
 		BB_PET_TARGETING_STRATEGY = /datum/targeting_strategy/basic/not_friends,
 		BB_OWNER_SELF_HARM_RESPONSES = list(
 			"*me licks its own eyeballs in disapproval.",
-			"*me croaks sadly."
-			"*me nudges you in worry."
+			"*me croaks sadly.",
+			"*me nudges you in worry.",
 		)
 	)
 

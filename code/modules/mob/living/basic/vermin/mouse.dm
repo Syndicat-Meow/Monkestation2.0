@@ -422,9 +422,9 @@
 		BB_OWNER_SELF_HARM_RESPONSES = list(
 			"*me cleans its whiskers in disapproval.",
 			"*me squeaks sadly.",
-			"*me sheds a single small tear."
-			"MY LIEGE! NO!!"
-			"*me offers a crumb of cheese to cheer you up."
+			"*me sheds a single small tear.",
+			"MY LIEGE! NO!!",
+			"*me offers a crumb of cheese to cheer you up.",
 		)
 	)
 
